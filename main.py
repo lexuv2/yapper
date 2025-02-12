@@ -12,7 +12,7 @@ from ctypes import cdll
 # os.system("export LD_PRELOAD=./cudnn/lib/libcudnn.so.9")
 
 
-## run this before export LD_PRELOAD=./cudnn/lib/libcudnn.so.9
+## run this before export LD_PRELOAD=./.venv/lib/python3.9/site-packages/nvidia/cudnn/lib/libcudnn_cnn.so.9
 
 # RATE=44100
 RATE = 16000
@@ -45,6 +45,7 @@ while True:
 
     print(numpy.min(recording))
     print(numpy.max(recording))
+    print(numpy.info(recording))
     start_time = time.time()
     print("Transcribing")
     segments, info = model.transcribe(recording, beam_size=5)
